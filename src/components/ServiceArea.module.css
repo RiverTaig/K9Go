@@ -1,0 +1,41 @@
+.serviceArea {
+    width: 370px;
+    height: 308px;
+    overflow: clip;
+}
+
+.serviceAreaImg {
+    width: 370px;
+    height: 308px;
+
+}
+.noFee {
+    width: 30px;
+    height: 30px;
+    background-color:#06AF8F;
+    margin-top: 10px;
+    display: inline-block;
+    margin-right: 10px;
+}
+.yellowFee {
+    width: 30px;
+    height: 30px;
+    background-color: #E3F705;
+    margin-right: 10px;
+    display: inline-block;
+    margin-top: 10px;
+}
+.redFee {
+    margin-top: 10px;
+    width: 30px;
+    height: 30px;
+    background-color:#BC0B6B;
+    display: inline-block;
+    margin-right: 10px;
+}
+.feeAreaText{
+    color:rgb(43, 10, 192);
+    display: inline;
+    position: relative;
+    bottom:5px;
+}
