@@ -1,0 +1,29 @@
+.cell {
+    width: 10vw;
+    height: 10vw;
+    display: inline-block;
+    border: 2px solid black;
+    margin-right: 2vw;
+    color: white;
+    text-align: center;
+}
+.row {
+    margin-top: 5px;
+}
+.firstmonth {
+    background-color: hsl(210, 100%, 50%);
+}
+.secondmonth {
+    background-color: hsl(210, 100%, 25%);
+}
+.soldout {
+    border: 3px solid red;
+    background-color: hsl(210, 100%, 25%);
+}
+.cellBlue {
+    background-color: blue;
+  }
+  
+ .cellGreen {
+    background-color: green;
+}
