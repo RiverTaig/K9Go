@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import styles from './Header.module.css';
 import { Link } from 'react-router-dom';
+import UserProvider, { UserContext } from "../context/UserContext";
 
 const Header: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const { user, setUser } = useContext(UserContext)
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -16,7 +18,9 @@ const Header: React.FC = () => {
                 <div></div>
                 <div></div>
             </div>
-            <div className={styles.title}>Welcome to K9Go.app<span className={styles.welcomeuser}>Please Login</span></div>
+            <div className={styles.title}>Welcome to K9GO.app <Link className={styles.welcomeuser} to="/login" >
+                { user?.email  === '' ?
+                'Please Login': `Welcome, ${user?.name}`}</Link></div>
             {isOpen && (
                 <nav className={styles.nav}>
                     <ul>

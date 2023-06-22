@@ -4,15 +4,18 @@ import firebase from 'firebase/app';
 import { collection, doc, setDoc } from "firebase/firestore";
 import { auth } from '../firebase';
 import styles from './Signup.module.css';
-
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
-  UserCredential
+  UserCredential,
+  sendEmailVerification,
+  updateProfile,
 } from 'firebase/auth';
 import { getFirestore } from "firebase/firestore";
-
-const Signup = () => {
+type ChildProps = {
+  onEvent: () => void;
+}
+const Signup: React.FC<ChildProps> = ({onEvent}) => {
   const emailRef = useRef<HTMLInputElement>(null);
   const nameRef = useRef<HTMLInputElement>(null);
   const psdRef = useRef<HTMLInputElement>(null);
@@ -34,6 +37,15 @@ const Signup = () => {
     return null
   }
 
+  const setTestValues = (() => {
+    if (emailRef.current && nameRef.current && phoneRef.current && psdRef.current && psdConfirmRef.current){
+      emailRef.current.value = "River.Taig@gmail.com"
+      phoneRef.current.value = "970-545-0023"
+      nameRef.current.value = "River"
+      psdRef.current.value = "qwerqwer"
+      psdConfirmRef.current.value = "qwerqwer"
+    }
+  })
   // Declare a new state variable for the error
   const [error, setError] = useState<string | null>(null);
 
@@ -65,6 +77,14 @@ const Signup = () => {
           // Since the user can be potentially null (though unlikely), let's handle that case
           if (user) {
             // Now, store the additional information in Firestore
+            sendEmailVerification(user).then(() => {
+              alert("We have sent an email to the address you provided. Please check your email and follow the verification link.  Once your email is verified, you can login and begin scheduling appointments.")
+              onEvent();
+              //navigate('/about');
+            });
+            updateProfile(user, {
+              displayName: name
+            });
             setDoc(doc(collection(db, 'Users'), user.uid), {
               username: name,
               phoneNumber: phone
@@ -85,7 +105,7 @@ const Signup = () => {
       <p>
         K9Go uses your email to occassionally reach out to you with product offers.  We use your cell phone
         to text you to confirm scheduled walks and to reschedule in the event of cancellation.
-        We promise to never sell your personal information.
+        We promise to never sell your personal <span onClick={setTestValues}>information.</span>
 
       </p>
       <h2> New User</h2>

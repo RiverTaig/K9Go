@@ -16,3 +16,17 @@ code {
   color: magenta;
   text-decoration: underline;
 }
+
+#root {
+
+  background-color:#878787
+}
+.app {
+  max-width: 600px;
+  margin:auto;
+  background-color: whitesmoke;
+}
+
+a:visited {
+  color:unset;
+}

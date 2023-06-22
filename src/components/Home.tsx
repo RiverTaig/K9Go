@@ -18,11 +18,11 @@ const Home: React.FC = () => {
                 We routinely walk up to 15 miles with our favorite furry friends. With K9Go.app, you can watch your dog step-by-step as they cover miles on a live video feed!
                 You can see the route your dog took on a map and even track their workouts over time.</em></p>
             <p><b>Q: Why does K9Go charge by the mile instead of by the minute?</b></p>
-            <p><em>A: When you go to the gym, is there any benefit from just standing around?
-                Nope! You've got to move.  Your dog is the same way.
+            <p><em>A: Most dog-walking services charge by the minute regardless of how far your dog actually walks.  But if you are paying
+                for your dog to get exercise, you want to know that your dog got a good workout, right?  
             </em></p>
             <p><b>Q: I have two dogs.  Can you walk them both?</b></p>
-            <p><em>A: Yes we can!  We only walk dogs together (maximum 2 dogs) that know each other and that you have pre-approved.  Having K9Go walk a second dog (whether it's yours or a friends) 
+            <p><em>A: Yes we can!  We only walk dogs together that know each other and that you have pre-approved.  Having K9Go walk a second dog (whether it's yours or a friends) 
                 is a great way to save money.  See our rates page for more details. 
             </em></p>  
             <p><b>Q: Do you always just walk in the neighborhood?</b></p>

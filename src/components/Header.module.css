@@ -64,10 +64,10 @@ a:visited {
 }
 .welcomeuser {
     font-size: 12px;
-    color: lime;
+    color: lime !important;
     float: right;
-    display: inline-block;
     margin-right: 10px;
+    text-decoration: none;
 }
 .nav ul li a {
     color: #fff;

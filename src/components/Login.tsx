@@ -35,8 +35,8 @@ const Login: React.FC = () => {
   }
 
 
-  const newUser = <><span>New User?? </span><span className='clickable-text'> Tap here </span></>;
-  const alreadyHave = <><span>Already Have an Account? </span><span className='clickable-text'> Tap here </span></>;
+  const newUser = <><span>New User? </span><span className='clickable-text'> Tap here </span></>;
+  const alreadyHave = <><span>Already have an account? </span><span className='clickable-text'> Tap here! </span></>;
   return (
     <>
       <div>
@@ -48,7 +48,7 @@ const Login: React.FC = () => {
           </div> : <div> </div>}
       </div>
       <div className="container">
-        {!index ? <Signin></Signin> : <Signup></Signup>}
+        {!index ? <Signin></Signin> : <Signup onEvent={toggleIndex}></Signup>}
         <p onClick={toggleIndex}>
           {!index ? newUser : alreadyHave}
         </p>
