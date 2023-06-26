@@ -7,9 +7,17 @@ import { getFirestore } from 'firebase/firestore';
 interface Appointment {
     x: string
 }
+interface Dog {
+    name: string,
+    breed: string,
+    age: number,
+    lastWalkDate: Date,
+    lastWalkDistance: number,
+}
 const Schedule: React.FC = () => {
     const rows = new Array(4).fill(null);
     const cols = new Array(7).fill(null);
+    let [dogs, setDogs] = useState<Dog[]>([])
     let [schedule, setSchedule] = useState<Appointment[]>([])
     const [activeIndex, setActiveIndex] = useState(15);
     let currentDate = new Date(); // start from current date
@@ -41,8 +49,7 @@ const Schedule: React.FC = () => {
         });
         // Add the 'selectedDate' class to the first div with innerHTML of '4'
         const pel = event.target.parentElement;
-        if (pel.classList.contains("cell"))
-        {
+        if (pel.classList.contains("cell")) {
             pel.classList.add('selectedDate')
         }
     }
@@ -62,6 +69,7 @@ const Schedule: React.FC = () => {
     }
 
     useEffect(() => {
+        setDogs([{ name: "Fido", breed: "Mutt", age: 8, lastWalkDate: new Date(), lastWalkDistance: 3 },{ name: "Opus", breed: "Mutt", age: 8, lastWalkDate: new Date(), lastWalkDistance: 3 }])
         const fetchSchedules = async () => {
             const db = getFirestore();
             const today = new Date();
@@ -97,6 +105,14 @@ const Schedule: React.FC = () => {
         <>
             <h2>SCHEDULE</h2>
             <p>Select a date from the calendar below and sign your dog up for a walk!</p>
+            <div>Please walk <select>
+                {dogs.map((dog, index) => (
+                    <option key={index}>
+                        {dog.name}
+                    </option>
+                ))}
+
+            </select></div>
             <div className="grid">
                 <div className='dayNames'><div className={`${styles.dayName} ${styles.cell}`}>SUN</div><div className={`${styles.dayName} ${styles.cell}`}>MON</div><div className={`${styles.dayName} ${styles.cell}`}>TUE</div><div className={`${styles.dayName} ${styles.cell}`}>WED</div><div className={`${styles.dayName} ${styles.cell}`}>THU</div><div className={`${styles.dayName} ${styles.cell}`}>FRI</div><div className={`${styles.dayName} ${styles.cell}`}>SAT</div></div>
 
@@ -108,7 +124,7 @@ const Schedule: React.FC = () => {
                             precedingSunday.setDate(precedingSunday.getDate() + 1); // increment date by one day
 
                             return (
-                                <div  key={`${rowIndex}-${colIndex}`} className={`${styles.cell} ${isNextMonth ? styles.firstmonth : styles.secondmonth}  ${precedingSunday <= currentDate ? styles.expiredDate : styles.validDate}
+                                <div key={`${rowIndex}-${colIndex}`} className={`${styles.cell} ${isNextMonth ? styles.firstmonth : styles.secondmonth}  ${precedingSunday <= currentDate ? styles.expiredDate : styles.validDate}
                                 ${1 == 1 ? styles.selected : styles.notSelected}
                                 cell
 
@@ -116,7 +132,7 @@ const Schedule: React.FC = () => {
 
 
                                 `} onClick={onClickCell}>
-                                    {dayOfMonth === 1 ? <div className={styles.month}>JULY</div> : <div className={styles.month}> </div>}
+                                    {dayOfMonth === 1 ? <div className={styles.month}>{['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'][new Date().getMonth() + 1]}</div> : <div className={styles.month}> </div>}
                                     <div className={styles.dayOfMonth}>{dayOfMonth}</div>
                                     <div className={styles.apptsLeft}>{schedule.length > 0 ? schedule[0].x : "x"}</div>
                                 </div>

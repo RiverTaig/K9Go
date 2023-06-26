@@ -3,7 +3,7 @@
     display: inline-block;
     border: 2px solid black;
     margin-left: 1px;
-    color: white;
+    color: black;
     text-align: center;
     font-size:16px;
     opacity: .7;
@@ -12,10 +12,10 @@
     margin-top: 2px;
 }
 .firstmonth {
-    background-color: hsl(210, 100%, 50%);
+    background-color: hsl(210, 100%, 100%);
 }
 .secondmonth {
-    background-color: hsl(210, 100%, 25%);
+    background-color: hsl(210, 100%, 100%);
 }
 .soldout {
     border: 3px solid red;
@@ -48,6 +48,7 @@
     min-height: 12px;
     max-height: 12px;
     margin-bottom: 3px;
+    font-weight: bold;
 }
 .miles {
     width: 20vw;
@@ -57,7 +58,7 @@ input {
     width: 75%;
 }
 .apptsLeft{
-    color:yellow;
+    color:rgb(81, 75, 68);
     font-size: 10px;
 }
 div.expiredDate>div.apptsLeft{

@@ -78,6 +78,7 @@ input {
   text-align: left;
 }
 .selectedDate {
-  border: 2px solid gold !important;
+  border: 2px solid var(--bs-blue) !important;
   opacity: 1 !important;
+  background-color: yellow !important;
 }
