@@ -30,3 +30,6 @@ code {
 a:visited {
   color:unset;
 }
+.notAvailable {
+  color: rgb(197, 197, 197);
+}
