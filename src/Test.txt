@@ -1,0 +1,27 @@
+function findNthPrime(n)
+    primeCount = 0
+    number = 2
+
+    while primeCount < n
+        if isPrime(number)
+            primeCount = primeCount + 1
+        end if
+        number = number + 1
+    end while
+
+    return number - 1
+end function
+
+function isPrime(number)
+    if number < 2
+        return false
+    end if
+
+    for i = 2 to squareRoot(number)
+        if number % i == 0
+            return false
+        end if
+    end for
+
+    return true
+end function
