@@ -17,7 +17,7 @@ import UserProvider from "./context/UserContext"
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
-  // This is a test from the command line
+  // This is a test from the command line 2
   return (
     <UserProvider>
       <div className='app'>
