@@ -17,6 +17,7 @@ import UserProvider from "./context/UserContext"
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
+  // This is a test
   return (
     <UserProvider>
       <div className='app'>
